@@ -1,0 +1,112 @@
+/** Roman Number system class */
+import  java.util.Scanner;
+public class RomanNumber
+{
+    public static void main(String[]  args)
+    {
+        /* write code to take an input and store it in a variable, number */
+        System.out.println("Please enter a number to convert");
+        Scanner scan = new Scanner(System.in);
+        int number = scan.nextInt();
+        /* call method convert  */
+        String romanStr  = convert(number);
+        // Output value returned from convert method.
+        System.out.println("The converted number as Roman Numerals is "+ romanStr);
+    }
+
+    public static String convert(int  n)
+    {
+        // declare a String to store result
+        String roman = ""; 
+        // write code to convert the number, n, into Roman numerals
+        if ((n >= 1) && (n <= 3999))
+        {
+            int thousands = (n / 1000);
+            int hundreds = (n % 1000) / 100;
+            int tens = (n % 100) /10;
+            int units = (n %10);
+            //continue writing code with IF statements
+            if (thousands >= 1)
+            {
+                if (thousands == 1)
+                {  roman += "M"; }
+                else if (thousands == 2)
+                {  roman += "MM"; }
+                else
+                {  roman += "MMM"; }
+                // end of thousands
+            }
+            if (hundreds >= 1)
+            {
+                if (hundreds == 1)
+                {  roman += "C"; }
+                else if (hundreds == 2)
+                {  roman += "CC"; }
+                else if (hundreds == 3)
+                {  roman += "CCC"; }
+                else if (hundreds == 4)
+                {  roman += "CD"; }
+                else if (hundreds == 5)
+                {  roman += "D"; }
+                else if (hundreds == 6)
+                {  roman += "DC"; }
+                else if (hundreds == 7) 
+                {  roman += "DCC"; }
+                else if (hundreds == 8)
+                {  roman += "DCCC"; }
+                else 
+                {  roman += "CM"; }
+                // end of hundreds
+            } 
+            if (tens >= 1)
+            {
+                if (tens == 1)
+                {  roman += "X"; }
+                else if (tens == 2)
+                {  roman += "XX"; }
+                else if (tens == 3)
+                {  roman += "XXX"; }
+                else if (tens == 4)
+                {  roman += "XL"; }
+                else if (tens == 5)
+                {  roman += "L"; }
+                else if (tens == 6)
+                {  roman += "LX"; }
+                else if (tens == 7) 
+                {  roman += "LXX"; }
+                else if (tens == 8)
+                {  roman += "LXXX"; }
+                else 
+                {  roman += "XC"; }
+                // end of tens
+            }
+            if (units >= 1)
+            {
+                if (units == 1)
+                {  roman += "I"; }
+                else if (units == 2)
+                {  roman += "II"; }
+                else if (units == 3)
+                {  roman += "III"; }
+                else if (units == 4)
+                {  roman += "IV"; }
+                else if (units == 5)
+                {  roman += "V"; }
+                else if (units == 6)
+                {  roman += "VI"; }
+                else if (units == 7) 
+                {  roman += "VII"; }
+                else if (units == 8)
+                {  roman += "VIII"; }
+                else 
+                {  roman += "IX"; }
+                // end of units
+            }
+        }
+        else
+        {
+            roman = "Not in the range accepted";
+        }
+        return roman;
+    }
+}
